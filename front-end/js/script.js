@@ -34,7 +34,7 @@ function sendMessage() {
     setTimeout(() => {
         // Remove typing indicator
         removeTypingIndicator();
-        
+
         // Bot's response (can be dynamic based on user message)
         const botResponse = "This is a bot response to: " + userMessage;
         appendMessage(botResponse, 'bot');
@@ -49,21 +49,21 @@ function sendMessage() {
 
 function appendMessage(message, sender) {
     const chatWindow = document.getElementById('chat-window');
-    
+
     const messageElement = document.createElement('div');
     messageElement.classList.add(sender + '-message');
     messageElement.textContent = message;
-    
+
     chatWindow.appendChild(messageElement);
 }
 
 function appendLawReference(reference) {
     const lawReferences = document.getElementById('law-references');
-    
+
     const referenceBubble = document.createElement('div');
     referenceBubble.classList.add('law-bubble');
     referenceBubble.textContent = reference;
-    
+
     lawReferences.appendChild(referenceBubble);
     lawReferences.scrollTop = lawReferences.scrollHeight; // Scroll to the bottom
 }
@@ -73,7 +73,7 @@ function displayTypingIndicator() {
     const typingIndicator = document.createElement('div');
     typingIndicator.classList.add('typing-indicator');
     typingIndicator.textContent = "Bot is typing...";
-    
+
     // Add the typing indicator before the bot's response
     chatWindow.appendChild(typingIndicator);
 
@@ -84,7 +84,7 @@ function displayTypingIndicator() {
 function removeTypingIndicator() {
     const chatWindow = document.getElementById('chat-window');
     const typingIndicator = document.querySelector('.typing-indicator');
-    
+
     if (typingIndicator) {
         chatWindow.removeChild(typingIndicator);
     }
@@ -95,26 +95,11 @@ function scrollChatWindowToBottom() {
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
+
 // Toggle dropdown visibility when settings button is clicked
-document.getElementById('dropdown-btn').addEventListener('click', function(event) {
+document.getElementById('dropdown-btn').addEventListener('click', function() {
     const dropdownMenu = document.getElementById('dropdown-menu');
-    
-    // Prevent the dropdown from closing immediately when clicked
-    event.stopPropagation(); 
-
-    // Toggle the visibility of the dropdown menu
     dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-});
-
-// Close dropdown if clicked outside
-document.addEventListener('click', function(event) {
-    const dropdownMenu = document.getElementById('dropdown-menu');
-    const dropdownBtn = document.getElementById('dropdown-btn');
-
-    // Close the dropdown if clicked outside of it
-    if (!dropdownMenu.contains(event.target) && event.target !== dropdownBtn) {
-        dropdownMenu.style.display = 'none';
-    }
 });
 
 // Handle Text to Speech Toggle
@@ -128,23 +113,6 @@ document.getElementById('tts-toggle').addEventListener('change', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('darkmode-toggle');
-
-    // Check for saved mode in localStorage
-    const savedMode = localStorage.getItem('theme') || 'dark';
-    document.body.classList.add(savedMode + '-mode');
-    darkModeToggle.checked = savedMode === 'dark';
-
-    darkModeToggle.addEventListener('change', () => {
-        const mode = darkModeToggle.checked ? 'dark' : 'light';
-        document.body.classList.remove('dark-mode', 'light-mode');
-        document.body.classList.add(mode + '-mode');
-
-        // Save mode to localStorage
-        localStorage.setItem('theme', mode);
-    });
-});
 
 // Handle Language Selection
 document.getElementById('language-select').addEventListener('change', function() {
