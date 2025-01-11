@@ -1,0 +1,135 @@
+/* Global Styling */
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Chat Container */
+#chat-container {
+    width: 100%;
+    height: 80vh;
+    max-width: 900px;
+    background-color: #2c2f38;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Chat Window */
+#chat-window {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #444;
+    background-color: #1e2125;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.6;
+    height: 100%;
+}
+
+/* Input Container */
+#input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+/* Input box styling */
+#user-input {
+    width: 85%;
+    padding: 12px 15px;
+    border-radius: 30px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Button Styling */
+#send-btn {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #45a049;
+}
+
+/* User and Bot message styling */
+.user-message, .bot-message {
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    max-width: 70%;
+    display: inline-block;
+    clear: both;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #006064;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #444;
+    color: #f1f1f1;
+    margin-right: auto;
+    text-align: left;
+}
+/* User and Bot message styling */
+.user-message, .bot-message {
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    max-width: 70%;
+    display: inline-block;
+    clear: both;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #006064;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #444;
+    color: #f1f1f1;
+    margin-right: auto;
+    text-align: left;
+}
+
+.bot-message:not(:last-child) {
+    margin-bottom: 20px; /* Adds space between bot replies */
+}

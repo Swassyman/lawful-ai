@@ -19,11 +19,18 @@ function sendMessage() {
     // Clear input field
     inputField.value = '';
 
+    // Show typing indicator for bot
+    displayTypingIndicator();
+
     // Simulate bot response after a short delay
     setTimeout(() => {
+        // Remove typing indicator
+        removeTypingIndicator();
+        
+        // Bot's response (can be dynamic based on user message)
         const botResponse = "This is a bot response to: " + userMessage;
         appendMessage(botResponse, 'bot');
-    }, 1000);
+    }, 1500);
 }
 
 function appendMessage(message, sender) {
@@ -35,4 +42,22 @@ function appendMessage(message, sender) {
     
     chatWindow.appendChild(messageElement);
     chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+}
+
+function displayTypingIndicator() {
+    const chatWindow = document.getElementById('chat-window');
+    const typingIndicator = document.createElement('div');
+    typingIndicator.classList.add('typing-indicator');
+    typingIndicator.textContent = "Bot is typing...";
+    
+    chatWindow.appendChild(typingIndicator);
+}
+
+function removeTypingIndicator() {
+    const chatWindow = document.getElementById('chat-window');
+    const typingIndicator = document.querySelector('.typing-indicator');
+    
+    if (typingIndicator) {
+        chatWindow.removeChild(typingIndicator);
+    }
 }
