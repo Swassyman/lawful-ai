@@ -6,8 +6,27 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+/* Title Section */
+#header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 30px;
+    background-color: #2c2f38;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+#title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
 }
 
 /* Chat Container */
@@ -22,6 +41,7 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     padding: 20px;
     overflow: hidden;
+    margin-top: 20px; /* Adds space between header and chat */
 }
 
 /* Chat Window */
@@ -37,9 +57,44 @@ body {
     font-size: 16px;
     line-height: 1.6;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Input Container */
+/* User and Bot message styling */
+.user-message, .bot-message {
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    max-width: 70%;
+    word-wrap: break-word;
+    line-height: 1.5;
+    display: block; /* Forces messages to be on a new line */
+}
+
+.user-message {
+    background-color: #006064;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #444;
+    color: #f1f1f1;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Input container */
 #input-container {
     display: flex;
     align-items: center;
@@ -78,58 +133,12 @@ body {
 #send-btn:hover {
     background-color: #45a049;
 }
-
-/* User and Bot message styling */
-.user-message, .bot-message {
-    padding: 12px 15px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    max-width: 70%;
+/* Typing indicator */
+.typing-indicator {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
     display: inline-block;
-    clear: both;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-.user-message {
-    background-color: #006064;
-    color: white;
-    margin-left: auto;
-    text-align: right;
-}
-
-.bot-message {
-    background-color: #444;
-    color: #f1f1f1;
-    margin-right: auto;
-    text-align: left;
-}
-/* User and Bot message styling */
-.user-message, .bot-message {
-    padding: 12px 15px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    max-width: 70%;
-    display: inline-block;
-    clear: both;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-.user-message {
-    background-color: #006064;
-    color: white;
-    margin-left: auto;
-    text-align: right;
-}
-
-.bot-message {
-    background-color: #444;
-    color: #f1f1f1;
-    margin-right: auto;
-    text-align: left;
-}
-
-.bot-message:not(:last-child) {
-    margin-bottom: 20px; /* Adds space between bot replies */
+    width: 100%;
 }
