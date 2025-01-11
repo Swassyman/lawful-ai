@@ -243,10 +243,10 @@ body {
 }
 .law-bubble{
     background-color: #444;
-    /* opacity: 50%; */
     padding: 10px 15px;
     color: #ffffff;
     margin-right: auto;
     text-align: left;
     border-radius: 15px;
 }
+
