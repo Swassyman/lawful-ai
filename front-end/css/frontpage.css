@@ -1,0 +1,21 @@
+.hero {
+    background: linear-gradient(to right, #2d3047, #120309);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  .features {
+    padding: 50px 20px;
+  }
+  .features .icon {
+    font-size: 50px;
+    color: #007aff;
+  }
+  .footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+  }
+  body {
+    color: #120309;         
+  }
