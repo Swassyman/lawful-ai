@@ -41,7 +41,7 @@ function appendMessage(message, sender) {
     messageElement.textContent = message;
     
     chatWindow.appendChild(messageElement);
-    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+    scrollToBottom(); // Scroll to the bottom after each message
 }
 
 function displayTypingIndicator() {
@@ -49,8 +49,11 @@ function displayTypingIndicator() {
     const typingIndicator = document.createElement('div');
     typingIndicator.classList.add('typing-indicator');
     typingIndicator.textContent = "Bot is typing...";
-    
+
+    // Append typing indicator at the bottom of the chat window
     chatWindow.appendChild(typingIndicator);
+    
+    scrollToBottom(); // Scroll to the bottom so typing indicator is visible
 }
 
 function removeTypingIndicator() {
@@ -60,4 +63,10 @@ function removeTypingIndicator() {
     if (typingIndicator) {
         chatWindow.removeChild(typingIndicator);
     }
+}
+
+// Function to ensure the chat window scrolls to the bottom
+function scrollToBottom() {
+    const chatWindow = document.getElementById('chat-window');
+    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
 }
