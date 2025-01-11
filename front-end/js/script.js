@@ -1,5 +1,3 @@
-// JavaScript to handle message sending and appending to the chat window
-
 document.getElementById('send-btn').addEventListener('click', sendMessage);
 document.getElementById('user-input').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -10,8 +8,15 @@ document.getElementById('user-input').addEventListener('keydown', function(event
 function sendMessage() {
     const inputField = document.getElementById('user-input');
     const userMessage = inputField.value.trim();
+    const welcomeMessage = document.getElementById('welcome-message'); // Get the welcome message element
 
+    // If user sends an empty message, return without doing anything
     if (userMessage === "") return;
+
+    // Hide the welcome message if it's still visible
+    if (welcomeMessage) {
+        welcomeMessage.style.display = 'none';
+    }
 
     // Append the user's message to the chat window
     appendMessage(userMessage, 'user');

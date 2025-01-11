@@ -182,3 +182,21 @@ body {
 #send-btn:hover {
     background-color: #45a049;
 }
+/* Centering the welcome message in the chat window */
+.center-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    color: #e0e0e0;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    background-color: #1e2125;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.disappear{
+    border-radius: 0%;
+}
