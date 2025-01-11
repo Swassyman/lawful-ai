@@ -22,6 +22,9 @@ function sendMessage() {
     // Show typing indicator for bot
     displayTypingIndicator();
 
+    // Scroll chat window to the bottom after the message
+    scrollChatWindowToBottom();
+
     // Simulate bot response after a short delay
     setTimeout(() => {
         // Remove typing indicator
@@ -30,6 +33,12 @@ function sendMessage() {
         // Bot's response (can be dynamic based on user message)
         const botResponse = "This is a bot response to: " + userMessage;
         appendMessage(botResponse, 'bot');
+
+        // Scroll chat window to the bottom after the bot's response
+        scrollChatWindowToBottom();
+
+        // Add a new law reference (bubble) after bot response
+        appendLawReference("Law reference related to: " + userMessage);
     }, 1500);
 }
 
@@ -41,7 +50,17 @@ function appendMessage(message, sender) {
     messageElement.textContent = message;
     
     chatWindow.appendChild(messageElement);
-    scrollToBottom(); // Scroll to the bottom after each message
+}
+
+function appendLawReference(reference) {
+    const lawReferences = document.getElementById('law-references');
+    
+    const referenceBubble = document.createElement('div');
+    referenceBubble.classList.add('law-bubble');
+    referenceBubble.textContent = reference;
+    
+    lawReferences.appendChild(referenceBubble);
+    lawReferences.scrollTop = lawReferences.scrollHeight; // Scroll to the bottom
 }
 
 function displayTypingIndicator() {
@@ -49,11 +68,12 @@ function displayTypingIndicator() {
     const typingIndicator = document.createElement('div');
     typingIndicator.classList.add('typing-indicator');
     typingIndicator.textContent = "Bot is typing...";
-
-    // Append typing indicator at the bottom of the chat window
-    chatWindow.appendChild(typingIndicator);
     
-    scrollToBottom(); // Scroll to the bottom so typing indicator is visible
+    // Add the typing indicator before the bot's response
+    chatWindow.appendChild(typingIndicator);
+
+    // Show typing indicator (it was hidden by default)
+    typingIndicator.style.display = 'block';
 }
 
 function removeTypingIndicator() {
@@ -65,8 +85,7 @@ function removeTypingIndicator() {
     }
 }
 
-// Function to ensure the chat window scrolls to the bottom
-function scrollToBottom() {
+function scrollChatWindowToBottom() {
     const chatWindow = document.getElementById('chat-window');
-    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+    chatWindow.scrollTop = chatWindow.scrollHeight;
 }

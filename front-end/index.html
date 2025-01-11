@@ -7,17 +7,27 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Title Section -->
-    <div id="header">
-        <h1 id="title" style="margin-left: 20px;">Lawful-AI</h1>
-    </div>
+    <div id="main-container">
+        <!-- Title Section -->
+        <div id="header">
+            <h1 id="title">Lawful-AI</h1>
+        </div>
 
-    <!-- Chat Container -->
-    <div id="chat-container">
-        <div id="chat-window"></div>
-        <div id="input-container">
-            <input type="text" id="user-input" placeholder="Type your message..." />
-            <button id="send-btn">Send</button>
+        <!-- Content Container (Flexbox for Left Chat and Right References) -->
+        <div id="content-container">
+            <!-- Chat Container -->
+            <div id="chat-container">
+                <div id="chat-window"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="Type your message..." />
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+
+            <!-- Law References Container -->
+            <div id="law-references">
+                <!-- Law references will be appended here dynamically as bubbles -->
+            </div>
         </div>
     </div>
 
