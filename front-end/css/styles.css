@@ -115,6 +115,8 @@ body {
     width: 90%;
     max-width: 1400px;
     margin-top: 20px;
+    margin-left: auto;
+  margin-right: auto;
 }
 
 #chat-container {
@@ -127,6 +129,7 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     padding: 20px;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 #law-references {
@@ -167,6 +170,7 @@ body {
     margin-bottom: 12px;
     max-width: 70%;
     word-wrap: break-word;
+    text-decoration: none;
     line-height: 1.5;
     display: block; /* Forces messages to be on a new line */
 }
@@ -196,7 +200,7 @@ body {
 
 /* Input Box Styling */
 #user-input {
-    width: 85%;
+    width: 88%;
     padding: 12px 15px;
     border-radius: 30px;
     border: 1px solid #555;
@@ -213,17 +217,20 @@ body {
 
 /* Button Styling */
 #send-btn {
-    padding: 12px 20px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 15px 20px;
+    background-color: white;
+    color: #2d3047;
     border: none;
     border-radius: 30px;
+    font-weight: bold;
     cursor: pointer;
+    margin-left: 19px;
     transition: background-color 0.3s ease;
 }
 
 #send-btn:hover {
-    background-color: #45a049;
+    background-color: #121212;
+    color:white
 }
 
 /* Centering the welcome message in the chat window */
