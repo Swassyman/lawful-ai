@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import os
 import google.generativeai as genai
+
 from flask_cors import CORS  # To handle CORS if needed
 print(dir(genai))
 app = Flask(__name__)
@@ -20,8 +21,12 @@ def chatbot_response(user_input):
 
         
         # Generate content from the model
-        response = model.generate_content(f"In basic text format with no bold, italics or anything, Act as a lawyer and first give related laws and sections in India and any advice on {user_input}")
-        return response.text
+        response = model.generate_content(f"Act as a lawyer and first give related laws and sections in India and any advice on {user_input} .dont say things like As an AI, I cannot provide legal advice.Give in paragraphs.Try to sympathise with the humans like a lawyer rather than just giving information. Provide at the end of the response give references and sources in an anchor tag")
+        formatted_response = response.text.replace("**", "").replace("*", "")
+        paragraphs = formatted_response.split(". ")
+        paragraph_text = "<p>" + "</p><p>".join(paragraphs) + "</p>"
+
+        return paragraph_text
     except Exception as e:
         return f"Error generating response: {str(e)}"
 
