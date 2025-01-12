@@ -103,3 +103,23 @@ document.getElementById('language-select').addEventListener('change', function (
     console.log('Selected Language:', selectedLanguage);
     // Add language change functionality here
 });
+
+
+        const inputField = document.getElementById('user-input');
+        const jsonOutput = document.getElementById('json-output');
+
+        inputField.addEventListener('input', () => {
+            const textValue = inputField.value.trim();
+            const jsonObject = {
+                message: textValue || "No message provided"
+            };
+            const fs = require('fs');
+            const jsonString =JSON.stringify(jsonObject, null, 2);
+            fs.writeFile('prompt_response.json', jsonString, (err) => {
+                if (err) {
+                    console.error('Error writing file:', err);
+                } else {
+                    console.log('JSON data written successfully to output.json');
+                }
+        });
+    });
