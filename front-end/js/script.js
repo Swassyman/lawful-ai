@@ -97,7 +97,8 @@ document.getElementById("dropdown-btn").addEventListener("click", function () {
 });
 
 // Handle Text-to-Speech Toggle
-document.getElementById("ttsToggle").addEventListener("change", function () {
+document.getElementById("ttsToggle").addEventListener("change", function () { 
+  
   const ttsEnabled = this.checked;
   if (ttsEnabled) {
     console.log("Text to Speech Enabled");
