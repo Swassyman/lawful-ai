@@ -1,10 +1,10 @@
+import os
 import streamlit as st
 from datetime import datetime
 import google.generativeai as genai
 from gtts import gTTS
 import pygame
-
-pygame.mixer.init()
+# pygame.mixer.init()
 
 # Function to generate chatbot response
 def chatbot_response(user_input):
@@ -17,6 +17,25 @@ def chatbot_response(user_input):
     updated_essay = "\n\n".join(paragraphs)
     return updated_essay
     
+
+def save_to_js(user_input, bot_response):
+    # Escape special characters in the bot response to prevent JS syntax issues
+    escaped_response = bot_response.replace('"', '\\"').replace('\n', '\\n')
+
+    # JavaScript content to append
+    js_content = f"""
+    const message = "{escaped_response}";
+    appendMessage(message, "bot");
+    """
+    parent_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "script.js")
+    # Check if the JavaScript file exists; if not, create it
+    if not os.path.exists(parent_folder_path):
+        with open(parent_folder_path, "w") as f:
+            f.write("// JavaScript file for appending chatbot messages\n\n")
+
+    # Append the generated JavaScript code
+    with open(parent_folder_path, "a") as f:
+        f.write(js_content)
 
 # Streamlit app
 def main():
@@ -113,16 +132,19 @@ def main():
             bot_response = chatbot_response(user_input)
             st.session_state.messages.append(("bot", bot_response, current_time))
 
-            # Clear the input box by resetting session state
-            tts = gTTS(bot_response, lang='en')
-            tts.save("output.mp3")
-            pygame.mixer.music.load("output.mp3")
-            pygame.mixer.music.play()
+            save_to_js(user_input, bot_response)
+
+
+            # # Clear the input box by resetting session state
+            # tts = gTTS(bot_response, lang='en')
+            # tts.save("output.mp3")
+            # pygame.mixer.music.load("output.mp3")
+            # pygame.mixer.music.play()
 
             st.session_state.user_input = ""
 
-while pygame.mixer.music.get_busy():
-    pass
+# ///while pygame.mixer.music.get_busy():
+#     pass
 
 if __name__ == "__main__":
     main()

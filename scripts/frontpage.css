@@ -1,0 +1,72 @@
+body {
+    font-family: 'Geist', sans-serif;
+}
+
+.hero {
+    background: linear-gradient(to right, #2d3047, #120309);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  .features {
+    padding: 50px 20px;
+    background-color: white;
+  }
+  .features .icon {
+    font-size: 50px;
+    color: #007aff;
+  }
+  .footer {
+    background: #2d3047;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+#features {
+    background-color: white;
+    border-radius: 10px;
+    border:10px;
+    border-color: #2d3047;
+}
+.btn.btn-primary.btn-lg {
+    background:#2d3047;
+}
+.card-body.d-flex.flex-column {
+    background-color: whitesmoke;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}   
+.card-body.d-flex.flex-column:hover {
+    transform: scale(1.05); /* Slightly scale the card */
+    background-color: #f0f0f0; /* Optional: Change background on hover */
+  }
+.ubuntu-light {
+    font-family: "Ubuntu", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .ubuntu-regular {
+    font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ubuntu-medium {
+    font-family: "Ubuntu", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .card-body .icon {
+    margin-bottom: 0.5rem; /* Adjust spacing as needed */
+  }
+  
+  .card-body .card-title {
+    margin-top: 0; /* Remove extra top margin */
+  }
